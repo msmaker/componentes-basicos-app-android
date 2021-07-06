@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -15,6 +16,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView textResultado;
 
     private CheckBox checkVerde, checkBranco, checkVermelho;
+
+    private RadioButton sexoMasculino, sexoFeminino;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +32,37 @@ public class MainActivity extends AppCompatActivity {
         checkVerde = findViewById(R.id.checkVerde);
         checkBranco = findViewById(R.id.checkBranco);
         checkVermelho = findViewById(R.id.checkVermelho);
+
+        //RadioButton
+        sexoMasculino = findViewById(R.id.radioButtonMasculino);
+        sexoFeminino = findViewById(R.id.radioButtonFeminino);
+
+    }
+
+    public void radioButton() {
+        if (sexoMasculino.isChecked()) {
+
+            textResultado.setText("Masculino");
+
+        } else if (sexoFeminino.isChecked()) {
+
+            textResultado.setText("Feminino");
+
+        }
+    }
+
+    public void enviar(View view) {
+
+        radioButton();
+        //checkBox();
+
+        /*
+        String nome = campoNome.getText().toString();
+        String email = campoEmail.getText().toString();
+
+        textResultado.setText("Nome: " + nome + " \nEmail: " + email);
+        */
+
     }
 
     public void checkBox() {
@@ -36,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
         String texto = "";
 
         if (checkVerde.isChecked()) {
-           // String corSelecionada = checkVerde.getText().toString();
+            // String corSelecionada = checkVerde.getText().toString();
             //texto = corSelecionada;
             texto = "Verde selecionado -";
 
@@ -53,18 +87,6 @@ public class MainActivity extends AppCompatActivity {
         textResultado.setText(texto);
     }
 
-    public void enviar(View view) {
-
-        checkBox();
-
-        /*
-        String nome = campoNome.getText().toString();
-        String email = campoEmail.getText().toString();
-
-        textResultado.setText("Nome: " + nome + " \nEmail: " + email);
-        */
-
-    }
 
     public void limpar(View view) {
         campoNome.setText("");
